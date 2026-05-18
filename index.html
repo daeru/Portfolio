@@ -1,35 +1,202 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
 
-    <script src="script.js"></script>
     <title>Drawer</title>
+    <script src="script.js" defer></script>
   </head>
   <body>
-    <div id="furniture">
-        <img src="pictures/Moebel-Hintergrund.png" alt="furniture">
+    <!-- Main stage -->
+    <div id="stage">
+      <!-- Text  -->
+      <div id="dario-text-top" class="drawer-text">Sälu, I am</div>
+      <div id="dario-text-bottom" class="drawer-text">
+        Interdisciplinary Thinker <br />
+        Creative Doer
+      </div>
+      <div id="contact-text" class="drawer-text">
+        Plenty of Space left.
+        <a href="https://www.w3schools.com">Contact Me.</a>
+      </div>
 
-        <img src="pictures/Drawer-Bottom.png" id="drawer_2" class="drawer" alt="furniture">
-        <img src="pictures/Moebel-Bottom.png" alt="furniture">
-
-        <img src="pictures/Drawer-Middle.png" id="drawer_1" class="drawer" lt="furniture">
-        <img src="pictures/Moebel-Middle.png" alt="furniture">
-        
-        <img src="pictures/Drawer-Top.png" id="drawer_0" class="drawer" alt="furniture" >
-        <img src="pictures/Moebel-Top.png" alt="furniture">
-
-        <div id="animation_dario" class="animation_dario_closed"></div>
-
-        <div id="animation_projects" class="animation_projects_closed"></div>
-
-        <div id="overlay" >
-          <div class="drawer_overlay" onclick="drawerClick(0)"></div>
-          <div class="drawer_overlay" onclick="drawerClick(1)"></div>
-          <div class="drawer_overlay" onclick="drawerClick(2)"></div>
+      <!-- Furniture system -->
+      <div id="furniture">
+        <!-- Icons of Projects -->
+        <div id="projects-container">
+          <button class="project-icon" data-project="project-1">
+            <img src="pictures/icons/icon1a.png" alt="Project 1" />
+          </button>
+          <button class="project-icon" data-project="project-2">
+            <img src="pictures/icons/icon2a.png" alt="Project 2" />
+          </button>
+          <button class="project-icon" data-project="project-3">
+            <img src="pictures/icons/icon3a.png" alt="Project 3" />
+          </button>
+          <button class="project-icon" data-project="project-4">
+            <img src="pictures/icons/icon4a.png" alt="Project 4" />
+          </button>
+          <button class="project-icon" data-project="project-5">
+            <img src="pictures/icons/icon5a.png" alt="Project 5" />
+          </button>
+          <button class="project-icon" data-project="project-6">
+            <img src="pictures/icons/icon6a.png" alt="Project 6" />
+          </button>
         </div>
+
+        <!-- Visual Layer -->
+        <div id="visual-layer">
+          <!-- Mask that shows where not to place Icons -->
+          <svg id="furniture-mask" viewBox="0 0 2732 2048">
+            <path
+              id="furniture-path"
+              d="M2135.66,579.69c-84.09-52.18-257.53-96.96-356.58-107.05-59.09-6.02-118.74-11.36-178.72-15.77-3.62-3.56-7.17-7.16-10.55-10.84-85.56-93.05-160.77-195.94-254.24-281.57-60.36-10.29-122.36-6.69-183.49-8.37-89.86-2.47-179.01-4.96-269.13-3.49-58.29.95-118.27,2.36-176.38,5.49-13.67.74-40.07-5.84-42.61,11.45,6.46,40.44-2.57,79.83-4.52,119.38-3.66,74.47-1.71,149.63,1.34,225.03-41.89,17.18-80.97,39.9-114.83,70.52-67.57,61.1-147.41,149.21-95.22,245.16,41.96,77.13,129.14,112.58,213.51,131.75-1.08,74.45-1.23,148.82-2.63,223.71-.37,19.96-7,17.51,9.88,33.94,53.42,51.98,89.85,106.18,138.9,161,53.11,59.37,111.49,115.62,166.81,173.07,5.39,5.6,12.66,9.91,17.46,16.53,175.65,7.21,352.94-3.65,529.22,4.4,37.1,1.69,68.26,4.12,105.86,3.9,14.59-.09,28.73,2.09,43.18,1.2,2.05-1.42,1.71-3.88,1.97-6.02,2.36-19.69,1.19-42.65-.2-64.76,51.65.64,103.3,1.97,154.73,5.27l100.71-2.37-.09-90.24c-1.95-6.51-22.17-6.8-23.7-18.48-.94-9.62,16.34-13.11,18.03-21.92l-2.85-98.94c-45.49-66.64-109.45-118.18-160.91-180.8-5.57-6.78-10.96-13.68-16.23-20.66,9.11-16,23.09-28.33,43.24-31.64,5.89-.97,11.64.13,17.24-.75,56.81-8.87,114.87-15.15,172.09-19.76,131.94-10.63,312.74-65.96,312.79-228.76.02-77.52-91.1-180.55-154.06-219.62Z"
+            />
+          </svg>
+
+          <!-- Furniture, Drawers and Animations -->
+          <img
+            id="layer1"
+            class="furniture-layer"
+            src="pictures/Moebel-Hintergrund.png"
+          />
+          <img
+            id="layer2"
+            class="furniture-layer"
+            src="pictures/Moebel-Bottom.png"
+          />
+
+          <div class="drawer_wrapper" data-drawer="2">
+            <img class="drawer" src="pictures/Drawer-Bottom.png" />
+          </div>
+
+          <img
+            id="layer3"
+            class="furniture-layer"
+            src="pictures/Moebel-Middle.png"
+          />
+
+          <div class="drawer_wrapper" data-drawer="1">
+            <img class="drawer" src="pictures/Drawer-Middle.png" />
+          </div>
+
+          <img id="animation_projects" />
+
+          <img
+            class="furniture-layer"
+            id="layer4"
+            src="pictures/Moebel-Top.png"
+          />
+
+          <div class="drawer_wrapper" data-drawer="0">
+            <img class="drawer" src="pictures/Drawer-Top.png" />
+          </div>
+
+          <img id="animation_dario" />
+        </div>
+
+        <!-- SVG Hit Layer -->
+        <svg id="drawer_hitarea" viewBox="0 0 2732 2048">
+          <path
+            class="hit"
+            data-drawer="2"
+            d="M734,942v73c0,3.71-4.52,11.54-3.15,17.09,2.24,9.01,24.58,17.59,15.26,31.04l-9.81,1.16c-6.07,35.33.2,71.94.67,107.72,27.46,23.63,49.76,53.1,73.99,80.01,44.53,49.44,85.38,102.78,130.95,151.05,10.14,10.75,24.22,21.44,35.11,32.89,23.38,24.59,45.76,50.34,68.17,75.83,29.19,10.59,59.64,1.82,89.88,2.12,15.33.15,34.37,3.69,49.83,4.16,110.32,3.37,221.7,2.64,332-.16,33.66-.86,68.25,2.58,101.1-4.9,5.47-4.65.1-23.08-.1-29.94-.45-15.19,2.82-47.12-2.42-59.58-3.35-7.97-14.69-5.09-15.58-8.81.33-5.92-1.38-16.34,3.1-20.67,2.16-2.08,6.3-1.88,7.96-4.04,6.06-7.89,2.67-71.41.55-84.51-.79-4.87-5.51-25.27-7.04-28.96-5.02-12.09-55.14-66.58-67.46-80.54-58.06-65.78-118.8-129.41-178.06-193.94-9.29-10.11-46.94-60.31-55.88-61.12-7.34.56-14.81,1.98-22.11,2.67-5.96.57-463.49,21.97-489-.57-19.37-3.89-38.49-2.71-57.98-1.02l.02.02h0Z"
+          />
+          <path
+            class="hit"
+            data-drawer="1"
+            d="M729.24,596.47c-8.47,1.59-2.76,13.14-3.05,18.53-1.15,21.36-3.13,36.17-2.17,58,.17,3.79-2.6,7.7-2.08,11.9.85,6.74,16.95,14.65,16.26,28.12-.57,11.07-8.45,5.98-12.1,7.99-7.72,4.26-2.14,13.27-2.01,19.91.4,19.41-3.76,72.4,3.52,86.48,4.03,7.8,10.78,9.24,15.48,14.52,80.29,90.22,163.39,177.96,243.95,268.05,16.06,17.96,29.39,38.37,47,55,32.44,5.1,64.07,8.46,97.06,7.11,133.96-5.51,268.15.24,401.84-.16,20.19-.06,49.36,2.64,68.18.17,15.63-2.05,5.53-23.37,4.82-35.01-1.17-19.35,3.93-38.38,1.76-57.76-1.75-5.13-12.4-5.02-17.59-8.41-18.86-12.3,10.18-21.28,11.88-29.95l-3.06-100.87c-47.45-67.98-112.22-120.52-164.84-185.16-38.09-46.78-65.9-97.43-112.03-137.97-3.4-2.98-19.68-16.84-22.07-17.93-3.46-1.59-33.05-1.95-36.64-.72-10.48,3.59-461.28,8.32-484.87.23-10.86-3.72-17.83-.58-27.36-.47-5.4.06-19.5-2.06-21.85-1.62l-.03.02h0Z"
+          />
+          <path
+            class="hit"
+            data-drawer="0"
+            d="M779.43,240.6c-7.66-6.17-45.73-1.52-57.28-.45,1.31,6.4-2.21,13.5-2.22,18.95,0,4.85,2.31,9.26,2.18,13.85-.54,18.87-3.6,38.87-.07,58.02,1.49,8.07,16.12,12.46,16.11,24.08s-12.43,2.66-14.16,11.95-2.15,26-2.07,36.1c.04,4.25,1.99,8.15,2.06,11.93.31,16.83-.26,33.72,1.41,50.42l111.64,110.53,201.02,233.03,162.88-9.12c127.08,8.23,254.66,5.05,382.15,8.04,9.83.23,25.39,8.4,25.02-8.8-.3-14.37-1.68-29.45-2.19-44.04-.35-10.05,1.69-24.52-.35-33.65-1.9-8.53-9.1-7.44-13.61-12.37-12.06-13.19,8.26-18.98,10-28.1,2.01-10.53.53-37.84.13-50.04-.64-19.08-4.85-39.76-3.06-58.83-27.81-35.32-62.24-64.51-93.07-97.03-73.09-77.1-141.42-158.56-214-236.11l-28.66,1.33s-399.29,5.71-483.85.32h-.01Z"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Project Pages -->
+    <div id="overlay-system">
+      <!-- Project 1 -->
+      <div class="project-overlay" data-overlay="project-1">
+        <div class="overlay-backdrop"></div>
+
+        <div class="overlay-panel">
+          <button class="overlay-close">✕</button>
+          <h2>Starcube</h2>
+          <h3>An ambisonic experience in form of a spatial game</h3>
+          <p>
+            Through a cube in the middle of a room with 8 speakers around, the
+            player controls the game that just happens sonicially. An
+            energy-ball enters the room and the player activates invisible walls
+            to catch the ball and let it bounce inside the room as long as
+            possible.
+          </p>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-overlay" data-overlay="project-2">
+        <div class="overlay-backdrop"></div>
+
+        <div class="overlay-panel">
+          <button class="overlay-close">✕</button>
+
+          <h2>Project 2</h2>
+          <p>Content about project 2 goes here.</p>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-overlay" data-overlay="project-3">
+        <div class="overlay-backdrop"></div>
+
+        <div class="overlay-panel">
+          <button class="overlay-close">✕</button>
+
+          <h2>Project 3</h2>
+          <p>Content about project 3 goes here.</p>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-overlay" data-overlay="project-4">
+        <div class="overlay-backdrop"></div>
+
+        <div class="overlay-panel">
+          <button class="overlay-close">✕</button>
+
+          <h2>Project 4</h2>
+          <p>Content about project 4 goes here.</p>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-overlay" data-overlay="project-5">
+        <div class="overlay-backdrop"></div>
+
+        <div class="overlay-panel">
+          <button class="overlay-close">✕</button>
+
+          <h2>Project 5</h2>
+          <p>Content about project 5 goes here.</p>
+        </div>
+      </div>
+
+      <!-- Project 6 -->
+      <div class="project-overlay" data-overlay="project-6">
+        <div class="overlay-backdrop"></div>
+
+        <div class="overlay-panel">
+          <button class="overlay-close">✕</button>
+
+          <h2>Project 6</h2>
+          <p>Content about project 6 goes here.</p>
+        </div>
+      </div>
     </div>
   </body>
 </html>
