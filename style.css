@@ -1,6 +1,10 @@
 * {
   margin: 0;
   padding: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 html,
@@ -29,10 +33,21 @@ body {
   width: 800px;
   height: 600px;
   position: relative;
+  transform: scale(0.9);
+  margin-top: 25px;
 }
 
-img {
+.furniture-layer,
+.drawer,
+#animation_dario,
+#animation_projects {
+  width: 100%;
+  height: 100%;
   position: absolute;
+  pointer-events: none;
+}
+
+.furniture-layer {
   top: 0;
   left: 0;
   object-fit: contain; /* OR none, but be consistent */
@@ -49,16 +64,7 @@ img {
 #animation_projects {
   pointer-events: none;
   position: absolute;
-}
-
-.furniture-layer,
-.drawer,
-#animation_dario,
-#animation_projects {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  pointer-events: none;
+  display: none;
 }
 
 .drawer_wrapper {
@@ -129,21 +135,34 @@ img {
   transition-delay: 0.3s; /* delay before animation starts */
 }
 
+#dario-text-top,
+#dario-text-bottom,
+#contact-text {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text; /* Internet Explorer/Edge */
+  user-select: text;
+}
+
 #dario-text-top {
   top: 4%;
 }
 
 #dario-text-bottom {
-  bottom: 5%;
+  bottom: 3%;
 }
 
 #contact-text {
-  bottom: 4%;
+  bottom: 15px;
 }
 
 a {
   color: rgb(0, 0, 0);
   z-index: 500;
+}
+
+#screen {
+  z-index: 0;
 }
 
 /* Overlay with Project Informations */
@@ -162,7 +181,8 @@ a {
   opacity: 0;
   transition: opacity 0.3s ease;
 
-  pointer-events: none;
+  cursor: pointer;
+  /* pointer-events: none; */
 }
 
 .project-overlay.open {
@@ -174,36 +194,36 @@ a {
   position: absolute;
   inset: 0;
 
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(8px);
+  background: rgba(34, 46, 63, 0.99);
+  /* backdrop-filter: blur(8px); */
 }
 
 .overlay-panel {
   position: absolute;
 
   left: 50%;
-  top: 50%;
+  height: 100%;
 
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0%);
 
-  width: min(700px, 90vw);
-  max-height: 80vh;
+  width: 1000px;
 
   overflow-y: auto;
-
-  background: white;
-  border-radius: 20px;
-
   padding: 40px;
 
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+  color: white;
+
+  cursor: default;
 }
 
 .overlay-close {
-  position: absolute;
+  /* position: fixed;
+  bottom: 20px;
 
-  top: 20px;
-  right: 20px;
+  left: 50%;
+  transform: translateX(-50%); */
+
+  z-index: 1000;
 
   border: none;
   background: transparent;
@@ -236,7 +256,7 @@ a {
   inset: 0;
   opacity: 0;
   transition: opacity 0.3s ease;
-  z-index: 310;
+  /*z-index: 310;*/
   pointer-events: none;
 }
 
@@ -246,9 +266,10 @@ a {
 
 .project-icon {
   position: absolute;
+  display: none;
 
-  width: 120px;
-  height: 120px;
+  width: 180px;
+  height: 180px;
 
   padding: 0;
   border: none;
@@ -262,8 +283,6 @@ a {
   transition:
     transform 0.3s ease,
     opacity 0.3s ease;
-
-  z-index: 311;
 
   pointer-events: auto;
 }
@@ -314,4 +333,8 @@ a {
 
 #drawer_hitarea {
   z-index: 200; /* IMPORTANT: just above drawers, below animations */
+}
+
+h2 {
+  font-size: 60px;
 }

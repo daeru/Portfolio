@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
 
-    <title>Drawer</title>
+    <title>Dario's Drawer</title>
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -24,28 +24,6 @@
 
       <!-- Furniture system -->
       <div id="furniture">
-        <!-- Icons of Projects -->
-        <div id="projects-container">
-          <button class="project-icon" data-project="project-1">
-            <img src="pictures/icons/icon1a.png" alt="Project 1" />
-          </button>
-          <button class="project-icon" data-project="project-2">
-            <img src="pictures/icons/icon2a.png" alt="Project 2" />
-          </button>
-          <button class="project-icon" data-project="project-3">
-            <img src="pictures/icons/icon3a.png" alt="Project 3" />
-          </button>
-          <button class="project-icon" data-project="project-4">
-            <img src="pictures/icons/icon4a.png" alt="Project 4" />
-          </button>
-          <button class="project-icon" data-project="project-5">
-            <img src="pictures/icons/icon5a.png" alt="Project 5" />
-          </button>
-          <button class="project-icon" data-project="project-6">
-            <img src="pictures/icons/icon6a.png" alt="Project 6" />
-          </button>
-        </div>
-
         <!-- Visual Layer -->
         <div id="visual-layer">
           <!-- Mask that shows where not to place Icons -->
@@ -118,16 +96,41 @@
       </div>
     </div>
 
+    <div id="screen">
+      <div id="projects-container">
+        <button class="project-icon" data-project="project-1">
+          <img src="pictures/icons/icon1a.png" alt="Project 1" />
+        </button>
+        <button class="project-icon" data-project="project-2">
+          <img src="pictures/icons/icon2a.png" alt="Project 2" />
+        </button>
+        <button class="project-icon" data-project="project-3">
+          <img src="pictures/icons/icon3a.png" alt="Project 3" />
+        </button>
+        <button class="project-icon" data-project="project-4">
+          <img src="pictures/icons/icon4a.png" alt="Project 4" />
+        </button>
+        <button class="project-icon" data-project="project-5">
+          <img src="pictures/icons/icon5a.png" alt="Project 5" />
+        </button>
+        <button class="project-icon" data-project="project-6">
+          <img src="pictures/icons/icon6a.png" alt="Project 6" />
+        </button>
+      </div>
+    </div>
+
     <!-- Project Pages -->
     <div id="overlay-system">
+      <!-- Icons of Projects -->
+
       <!-- Project 1 -->
       <div class="project-overlay" data-overlay="project-1">
         <div class="overlay-backdrop"></div>
-
         <div class="overlay-panel">
           <button class="overlay-close">✕</button>
-          <h2>Starcube</h2>
-          <h3>An ambisonic experience in form of a spatial game</h3>
+          <h2>
+            Data Visualisation to spark hope in the context of Sustainability
+          </h2>
           <p>
             Through a cube in the middle of a room with 8 speakers around, the
             player controls the game that just happens sonicially. An
@@ -135,6 +138,8 @@
             to catch the ball and let it bounce inside the room as long as
             possible.
           </p>
+          <div><img src="pictures/Aufbau.png"></img></div>
+                 
         </div>
       </div>
 

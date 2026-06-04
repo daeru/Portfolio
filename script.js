@@ -7,7 +7,7 @@ const TIMING = {
 let animationTimeouts = {};
 let activeRAF = {};
 
-const ICON_SIZE = 100;
+const ICON_SIZE = 180;
 const baseWidth = 800;
 const baseHeight = 600;
 const drawerOpen = [false, false, false];
@@ -15,6 +15,7 @@ const projectsContainer = document.getElementById("projects-container");
 const icons = document.querySelectorAll(".project-icon");
 const stage = document.getElementById("stage");
 const overlays = document.querySelectorAll(".project-overlay");
+const projectIcons = document.getElementsByClassName("project-icon");
 
 const drawerMoves = [
   { x: 95 / baseWidth, y: 102 / baseHeight }, // drawer 0
@@ -74,11 +75,11 @@ function openAnimation(id) {
 
 function closeAnimation(id) {
   if (id === 0) {
-    document.getElementById("animation_dario").style.opacity = 0;
+    document.getElementById("animation_dario").style.display = "none";
   }
 
   if (id === 1) {
-    document.getElementById("animation_projects").style.opacity = 0;
+    document.getElementById("animation_projects").style.display = "none";
   }
 }
 
@@ -93,7 +94,7 @@ function playFrameAnimation(elementId, frames, speed = TIMING.frameSpeed) {
   let frame = 0;
   let lastTime = 0;
 
-  element.style.opacity = 1;
+  element.style.display = "block";
   element.src = frames[0];
 
   function loop(time) {
@@ -140,7 +141,7 @@ function setDrawer(id, isOpen) {
       visual.style.transform = `translate(${dx}px, ${dy}px)`;
 
       // SVG hit area — apply a "tweak factor" to exaggerate movement
-      const svgFactor = 3.4; // tweak this to make SVG move more intensely
+      const svgFactor = 3.33; // tweak this to make SVG move more intensely
       hit.style.transform = `translate(${dx * svgFactor}px, ${dy * svgFactor}px)`;
     } else {
       visual.style.transform = `translate(0px,0px)`;
@@ -180,7 +181,10 @@ function setDrawer(id, isOpen) {
       }, TIMING.drawerDuration);
     } else {
       projectsContainer.classList.remove("visible");
-
+      // let project icons disappear
+      for (var i = 0; i < projectIcons.length; i++) {
+        projectIcons[i].style.display = "none";
+      }
       icons.forEach((icon) => {
         icon.style.opacity = 0;
         icon.style.transform = "translateY(20px)";
@@ -289,6 +293,10 @@ function placeIcons() {
 
   const placed = [];
 
+  for (var i = 0; i < projectIcons.length; i++) {
+    projectIcons[i].style.display = "block";
+  }
+
   icons.forEach((icon) => {
     let placedSuccessfully = false;
 
@@ -390,7 +398,7 @@ function updateDrawerTransformsOnly() {
 
       visual.style.transform = `translate(${dx}px, ${dy}px)`;
 
-      const svgFactor = 3.4;
+      const svgFactor = 3.33;
       hit.style.transform = `translate(${dx * svgFactor}px, ${dy * svgFactor}px)`;
     } else {
       visual.style.transform = `translate(0px,0px)`;
